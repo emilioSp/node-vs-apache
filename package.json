@@ -1,0 +1,15 @@
+{
+  "name": "node-vs-apache",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/emilioSp/node-vs-apache.git",
+  "author": "espatola <emilio.spatola@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test-node": "artillery quick --count 1000 -k http://localhost:8000",
+    "test-apache": "artillery quick --count 1000 -k http://localhost:8001/lorem_ipsum.html"
+  },
+  "devDependencies": {
+    "artillery": "^1.6.0-29"
+  }
+}
