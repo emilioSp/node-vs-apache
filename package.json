@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "test-node": "artillery quick --count 1000 -k http://localhost:8000",
-    "test-apache": "artillery quick --count 1000 -k http://localhost:8001/lorem_ipsum.html"
+    "test-php": "artillery quick --count 1000 -k http://localhost:9000/test.php",
+    "test-httpd": "artillery quick --count 1000 -k http://localhost:9001/lorem_ipsum.html"
   },
   "devDependencies": {
     "artillery": "^1.6.0-29"
