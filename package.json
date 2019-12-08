@@ -11,7 +11,11 @@
     "build-node-server": "docker build --no-cache -t node-test -f node/Dockerfile .",
     "run-node-server": "docker run --name node-test --detach -p 8000:8000 node-test",
     "stop-node-server": "docker rm -f node-test",
-    "test-node": "yarn build-node-server && yarn run-node-server && sleep 5 && ab -n 1000 -c 150 http://localhost:8000/ && yarn stop-node-server",
-    "test-php": "yarn build-php-server && yarn run-php-server && sleep 5 && ab -n 1000 -c 150 http://localhost:9000/test.php && yarn stop-php-server"
-  }
+    "test-node-heavy": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && ab -n 25000 -c 150 -r http://localhost:8000/ && yarn stop-node-server",
+    "test-node-normal": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && ab -n 10000 -c 150 -r http://localhost:8000/ && yarn stop-node-server",
+    "test-node-light": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && ab -n 5000 -c 50 -r http://localhost:8000/ && yarn stop-node-server",
+    "test-php-heavy": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && ab -n 25000 -c 150 -r http://localhost:9000/test.php && yarn stop-php-server",
+    "test-php-normal": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && ab -n 10000 -c 150 -r http://localhost:9000/test.php && yarn stop-php-server",
+    "test-php-light": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && ab -n 5000 -c 50 -r http://localhost:9000/test.php && yarn stop-php-server"
+   }
 }
