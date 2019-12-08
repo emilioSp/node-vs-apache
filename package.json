@@ -1,7 +1,6 @@
 {
   "name": "node-vs-apache",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/emilioSp/node-vs-apache.git",
   "author": "espatola <emilio.spatola@gmail.com>",
   "license": "MIT",
@@ -12,10 +11,7 @@
     "build-node-server": "docker build --no-cache -t node-test -f node/Dockerfile .",
     "run-node-server": "docker run --name node-test --detach -p 8000:8000 node-test",
     "stop-node-server": "docker rm -f node-test",
-    "test-node": "yarn build-node-server && yarn run-node-server && artillery quick --count 1000 -k http://localhost:8000 && yarn stop-node-server",
-    "test-php": "yarn build-php-server && yarn run-php-server && artillery quick --count 1000 -k http://localhost:9000/test.php && yarn stop-php-server"
-  },
-  "devDependencies": {
-    "artillery": "^1.6.0-29"
+    "test-node": "yarn build-node-server && yarn run-node-server && sleep 5 && ab -n 1000 -c 150 http://localhost:8000/ && yarn stop-node-server",
+    "test-php": "yarn build-php-server && yarn run-php-server && sleep 5 && ab -n 1000 -c 150 http://localhost:9000/test.php && yarn stop-php-server"
   }
 }
