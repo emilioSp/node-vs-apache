@@ -1,4 +1,5 @@
 <?php
+sleep(1);
 ?>
 <!DOCTYPE html>
 <html lang="en">

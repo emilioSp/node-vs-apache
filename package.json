@@ -5,17 +5,19 @@
   "author": "espatola <emilio.spatola@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build-apache-bench": "docker build --no-cache -t apache-bench -f Dockerfile .",
+    "run-apache-bench": "REQUESTS=100000 CONCURRENCY=10000; docker run --rm --network=\"host\" apache-bench -n $REQUESTS -c $CONCURRENCY -r -s 9999 http://127.0.0.1:9000/test.php",
     "build-php-server": "docker build --no-cache -t php-test -f php/Dockerfile .",
     "run-php-server": "docker run --name php-test --detach -p 9000:80 php-test",
     "stop-php-server": "docker rm -f php-test",
     "build-node-server": "docker build --no-cache -t node-test -f node/Dockerfile .",
     "run-node-server": "docker run --name node-test --detach -p 8000:8000 node-test",
     "stop-node-server": "docker rm -f node-test",
-    "test-node-heavy": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && ab -n 25000 -c 150 -r http://localhost:8000/ && yarn stop-node-server",
-    "test-node-normal": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && ab -n 10000 -c 150 -r http://localhost:8000/ && yarn stop-node-server",
-    "test-node-light": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && ab -n 5000 -c 50 -r http://localhost:8000/ && yarn stop-node-server",
-    "test-php-heavy": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && ab -n 25000 -c 150 -r http://localhost:9000/test.php && yarn stop-php-server",
-    "test-php-normal": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && ab -n 10000 -c 150 -r http://localhost:9000/test.php && yarn stop-php-server",
-    "test-php-light": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && ab -n 5000 -c 50 -r http://localhost:9000/test.php && yarn stop-php-server"
+    "test-node-heavy": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && ab -n 25000 -c 150 -r http://127.0.0.1:8000/ && yarn stop-node-server",
+    "test-node-normal": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && ab -n 10000 -c 150 -r http://127.0.0.1:8000/ && yarn stop-node-server",
+    "test-node-light": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && ab -n 5000 -c 50 -r http://127.0.0.1:8000/ && yarn stop-node-server",
+    "test-php-heavy": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && ab -n 25000 -c 150 -r http://127.0.0.1:9000/test.php && yarn stop-php-server",
+    "test-php-normal": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && ab -n 10000 -c 150 -r http://127.0.0.1:9000/test.php && yarn stop-php-server",
+    "test-php-light": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && ab -n 5000 -c 50 -r http://127.0.0.1:9000/test.php && yarn stop-php-server"
    }
 }
