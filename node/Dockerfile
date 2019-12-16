@@ -4,6 +4,6 @@ RUN apk add --no-cache --update bash nodejs
 
 WORKDIR /opt/app
 COPY lorem_ipsum.html .
-COPY /node/static.js .
+COPY /node/server.js .
 
-CMD NODE_ENV=production node static.js
+CMD NODE_ENV=production node server.js

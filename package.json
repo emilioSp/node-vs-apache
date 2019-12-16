@@ -14,12 +14,10 @@
     "run-node-server": "docker run --name node-test --detach -p 8000:8000 node-test",
     "stop-node-server": "docker rm -f node-test",
     "test-node": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && yarn build-apache-bench && yarn run-apache-bench && yarn stop-node-server",
-    "test-node-heavy": "export REQUESTS=20000 export CONCURRENCY=1000 export URL=http://127.0.0.1:8000/; yarn test-node",
-    "test-node-normal": "export REQUESTS=10000 export CONCURRENCY=100 export URL=http://127.0.0.1:8000/; yarn test-node",
-    "test-node-light": "export REQUESTS=100 export CONCURRENCY=5 export URL=http://127.0.0.1:8000/; yarn test-node",
+    "test-node-static": "export REQUESTS=15000 export CONCURRENCY=500 export URL=http://127.0.0.1:8000/static; yarn test-node",
+    "test-node-simulated-io": "export REQUESTS=15000 export CONCURRENCY=500 export URL=http://127.0.0.1:8000/simulated-io; yarn test-node",
     "test-php": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && yarn build-apache-bench && yarn run-apache-bench && yarn stop-php-server",
-    "test-php-heavy": "export REQUESTS=20000 export CONCURRENCY=1000 export URL=http://127.0.0.1:9000/test-static.php; yarn test-php",
-    "test-php-normal": "export REQUESTS=10000 export CONCURRENCY=100 export URL=http://127.0.0.1:9000/test-static.php; yarn test-php",
-    "test-php-light": "export REQUESTS=100 export CONCURRENCY=5 export URL=http://127.0.0.1:9000/test-static.php; yarn test-php"
+    "test-php-static": "export REQUESTS=15000 export CONCURRENCY=500 export URL=http://127.0.0.1:9000/static.php; yarn test-php",
+    "test-php-simulated-io": "export REQUESTS=15000 export CONCURRENCY=500 export URL=http://127.0.0.1:9000/simulated-io.php; yarn test-php"
     }
 }
