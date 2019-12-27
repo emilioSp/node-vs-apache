@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
+const computePrimeSequence = require('./primeNumbers');
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -22,7 +23,7 @@ const server = http.createServer( async (req, res) => {
       break;
     case '/cpu-intensive':
       res.writeHead(200, {'Content-Type': 'application/json'});
-      // TODO: write cpu intensive task
+      const primeNumbers = computePrimeSequence(1000);
       res.end('OK');
       break;
     default:
