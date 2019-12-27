@@ -1,5 +1,5 @@
 FROM alpine:3.11
-RUN apk --no-cache add apache2 php7-apache2 bash
+RUN apk --no-cache add apache2 php7-apache2 php7-json bash
 
 COPY php/*.php /var/www/localhost/htdocs/
 

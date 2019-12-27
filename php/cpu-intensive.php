@@ -18,5 +18,4 @@ function computePrimeSequence($n) {
     return $result;
 }
 
-computePrimeSequence(1000);
-echo 'OK';
+echo json_encode(computePrimeSequence(1000));

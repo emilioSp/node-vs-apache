@@ -23,8 +23,7 @@ const server = http.createServer( async (req, res) => {
       break;
     case '/cpu-intensive':
       res.writeHead(200, {'Content-Type': 'application/json'});
-      const primeNumbers = computePrimeSequence(1000);
-      res.end('OK');
+      res.end(JSON.stringify(computePrimeSequence(1000)));
       break;
     default:
       res.writeHead(404, 'route not defined');
