@@ -14,11 +14,9 @@
     "run-node-server": "docker run --name node-test --detach -p 8000:8000 node-test",
     "stop-node-server": "docker rm -f node-test",
     "test-node": "(yarn stop-node-server || true) && yarn build-node-server && yarn run-node-server && sleep 10 && yarn build-apache-bench && yarn run-apache-bench && yarn stop-node-server",
-    "test-node-static": "export REQUESTS=5000 export CONCURRENCY=250 export URL=http://127.0.0.1:8000/static; yarn test-node",
     "test-node-simulated-io": "export REQUESTS=5000 export CONCURRENCY=250 export URL=http://127.0.0.1:8000/simulated-io; yarn test-node",
     "test-node-cpu-intensive": "export REQUESTS=5000 export CONCURRENCY=250 export URL=http://127.0.0.1:8000/cpu-intensive; yarn test-node",
     "test-php": "(yarn stop-php-server || true) && yarn build-php-server && yarn run-php-server && sleep 10 && yarn build-apache-bench && yarn run-apache-bench && yarn stop-php-server",
-    "test-php-static": "export REQUESTS=50000 export CONCURRENCY=250 export URL=http://127.0.0.1:8000/static.php; yarn test-php",
     "test-php-simulated-io": "export REQUESTS=5000 export CONCURRENCY=250 export URL=http://127.0.0.1:8000/simulated-io.php; yarn test-php",
     "test-php-cpu-intensive": "export REQUESTS=5000 export CONCURRENCY=250 export URL=http://127.0.0.1:8000/cpu-intensive.php; yarn test-php"
     }

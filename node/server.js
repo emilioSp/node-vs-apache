@@ -1,5 +1,4 @@
 const http = require('http');
-const fs = require('fs');
 const url = require('url');
 const computePrimeSequence = require('./primeNumbers');
 
@@ -11,11 +10,6 @@ const server = http.createServer( async (req, res) => {
   const requestUrl = url.parse(req.url);
   const path = requestUrl.pathname;
   switch (path) {
-    case '/static':
-      res.writeHead(200, {'Content-Type': 'text/html'});
-      const stream = fs.createReadStream('lorem_ipsum.html');
-      stream.pipe(res);
-      break;
     case '/simulated-io':
       res.writeHead(200, {'Content-Type': 'application/json'});
       await sleep(100);
