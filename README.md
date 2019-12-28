@@ -1,7 +1,15 @@
 # node-vs-apache
 
-You will need docker engine and Apache Bench https://httpd.apache.org/docs/2.4/programs/ab.html
+You need Docker engine on your local machine
 
-`yarn test-node`
+## NodeJS
+```shell script
+yarn test-node-simulated-io
+yarn test-node-cpu-intensive
+```
 
-`yarn test-php`
+## Apache + PHP
+```shell script
+yarn test-php-simulated-io
+yarn test-php-cpu-intensive
+```
