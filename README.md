@@ -1,6 +1,6 @@
 # node-vs-apache
-
-You need Docker engine on your local machine
+A performance benchmark using [Apache Benchmark](https://httpd.apache.org/docs/2.4/programs/ab.html).
+You need Docker engine to execute tests.
 
 ## NodeJS
 ```shell script
