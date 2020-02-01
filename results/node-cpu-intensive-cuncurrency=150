@@ -1,0 +1,49 @@
+Benchmarking 127.0.0.1 (be patient)
+Completed 500 requests
+Completed 1000 requests
+Completed 1500 requests
+Completed 2000 requests
+Completed 2500 requests
+Completed 3000 requests
+Completed 3500 requests
+Completed 4000 requests
+Completed 4500 requests
+Completed 5000 requests
+Finished 5000 requests
+
+
+Server Software:
+Server Hostname:        127.0.0.1
+Server Port:            8000
+
+Document Path:          /cpu-intensive
+Document Length:        3149 bytes
+
+Concurrency Level:      150
+Time taken for tests:   26.455 seconds
+Complete requests:      5000
+Failed requests:        0
+Total transferred:      16280000 bytes
+HTML transferred:       15745000 bytes
+Requests per second:    189.00 [#/sec] (mean)
+Time per request:       793.646 [ms] (mean)
+Time per request:       5.291 [ms] (mean, across all concurrent requests)
+Transfer rate:          600.96 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    9   4.4      8      29
+Processing:    89  773  86.7    796    1826
+Waiting:       15  632 117.9    636    1812
+Total:         98  782  86.4    806    1833
+
+Percentage of the requests served within a certain time (ms)
+  50%    806
+  66%    815
+  75%    819
+  80%    822
+  90%    827
+  95%    833
+  98%    847
+  99%    848
+ 100%   1833 (longest request)

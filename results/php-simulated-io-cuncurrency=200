@@ -1,0 +1,49 @@
+Benchmarking 127.0.0.1 (be patient)
+Completed 500 requests
+Completed 1000 requests
+Completed 1500 requests
+Completed 2000 requests
+Completed 2500 requests
+Completed 3000 requests
+Completed 3500 requests
+Completed 4000 requests
+Completed 4500 requests
+Completed 5000 requests
+Finished 5000 requests
+
+
+Server Software:        Apache/2.4.41
+Server Hostname:        127.0.0.1
+Server Port:            8000
+
+Document Path:          /simulated-io.php
+Document Length:        2 bytes
+
+Concurrency Level:      200
+Time taken for tests:   10.047 seconds
+Complete requests:      5000
+Failed requests:        0
+Total transferred:      960000 bytes
+HTML transferred:       10000 bytes
+Requests per second:    497.67 [#/sec] (mean)
+Time per request:       401.875 [ms] (mean)
+Time per request:       2.009 [ms] (mean, across all concurrent requests)
+Transfer rate:          93.31 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    3   3.7      1      24
+Processing:   101  392 833.5    189    7850
+Waiting:      101  391 833.7    188    7849
+Total:        108  394 834.3    191    7866
+
+Percentage of the requests served within a certain time (ms)
+  50%    191
+  66%    206
+  75%    224
+  80%    309
+  90%    735
+  95%   1492
+  98%   2303
+  99%   4355
+ 100%   7866 (longest request)
