@@ -1,0 +1,47 @@
+Simulated io requests per second managed (mean)
+	node	apache
+50	409.92	350.23
+100	751.15	473.28
+150	1041.01	497.08
+200	1252.15	497.67
+250	1384.89	533.21
+
+CPU intensive requests per second managed (mean)
+	node	apache
+50	190.98	49.13
+100	193.33	49.78
+150	189	46.27
+200	194	49.1
+250	191.82	50.13
+
+Simulated IO Time (ms) per request (mean)
+	node	apache
+50	121.975	142.765
+100	133.129	211.29
+150	144.091	301.761
+200	159.725	401.875
+250	180.52	468.86
+
+CPU intensive Time (ms) per request (mean)
+	  node	     apache
+50	 261.804	1017.791
+100	 517.258	2008.894
+150	 793.646	3241.664
+200	1030.927	4073.227
+250	1303.308	4987.016
+
+Simulated IO longest request time (ms) (worst case)
+	node	apache
+50	 246	 966
+100	 235	1794
+150	 242	5065
+200	1225	7866
+250	1280	7886
+
+CPU intensive longest request time (ms) (worst case)
+	node	apache
+50	 467	 1517
+100	 781	 2994
+150	1833	11176
+200	2084	12250
+250	2700	13419
